@@ -1,2 +1,2 @@
-rake db:create
-rake db:migrate
+release: rake db:create
+release: rake db:migrate
