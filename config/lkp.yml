@@ -1,0 +1,25 @@
+# Rails.configuration.payment['merchant_id'] # => production_merchant_id or development_merchant_id
+
+default: &default
+  title: Create your own Blog
+  gitusername: projectlkp
+  token: sd
+  branch: gh-pages
+  default_name: Your awesome title
+  default_email: your-email@domain.com
+  base_url: https://projectlkp.github.io
+  url: localhost:3000
+  default_description: You can update description in update blog details page.
+  default_twitter: jekyllrb
+  default_theme: minima
+  default_about: You can update about page in update blog details page.
+
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

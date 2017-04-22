@@ -1,0 +1,19 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <% if @post.new_record? %>
+       <%= f.input :name, autofocus: true, required: true %>
+    <% else %>
+       <%= f.input :name, readonly: true %>
+    <% end %>
+    <%= f.input :content, as: :text   %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<script>
+var simplemde = new SimpleMDE();
+</script>

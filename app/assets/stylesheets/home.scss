@@ -1,0 +1,42 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+
+}
+
+header.batman{
+  padding: 10px 0px;
+  border-bottom: 6px solid #666666;
+  margin-bottom: 10px;
+}
+
+#new_user{
+  max-width: 400px;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+.form-actions{
+  padding-top: 12px;
+}
+.alert{
+  opacity: .7;
+}
+
+.jumbotron{
+  margin: 80px 0px;
+}
+
+footer{
+  padding: 20px 0px;
+}
+
+.padding-little{
+    padding: 20px 0px;
+}
+
+
+// for keeping markdown editor's height to 300px fixed
+// .CodeMirror {
+// 	height: 300px;
+// }
