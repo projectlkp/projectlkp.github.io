@@ -3,17 +3,16 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use sqlite3 as the database for Active Record
 
 
 # sqlite3 fails on heroku
-group :development do
-   gem 'sqlite3'    #gem to use in development environment
-end
+# group :development do
+#    gem 'sqlite3'    #gem to use in development environment
+# end
 
-group :production do
-  gem 'pg'         #gem to use in production environment
-end
+# group :production do
+gem 'pg'         #gem to use in production environment
+# end
 
 gem 'simple_form'
 gem 'bootstrap-sass'
