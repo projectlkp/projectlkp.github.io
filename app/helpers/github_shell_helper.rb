@@ -9,6 +9,8 @@ module GithubShellHelper
     system("cd all_projects && ls")
     `sleep 30`
     `git config --global user.name projectlkp && git config --global user.email projectlkopo@gmail.com`
+    `touch ~/.netrc`
+    make_file_p()
     `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin git@github.com:#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
   end
 
@@ -16,5 +18,15 @@ module GithubShellHelper
     `cd all_projects/#{blog.name} && git add --all && git commit -m "new commit" && git push origin #{Rails.configuration.lkp['branch']}`
     blog.last_published_at=Time.now
     blog.save!
+  end
+
+  def make_file_p()
+    File.write("~/.netrc",
+    <<-HEREDOC
+machine github.com
+       login projectlkp
+       password #{ENV['github_pwd']}
+    HEREDOC
+    )
   end
 end
