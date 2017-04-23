@@ -12,8 +12,6 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/all_projects/*
-!/all_projects/value
 /log/*
 /tmp/*
 !/log/.keep
