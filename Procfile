@@ -1,0 +1,1 @@
+release: rake git:init

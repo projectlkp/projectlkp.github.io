@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :rememberable, :trackable, :validatable
 
-  validates :username, format: { with: /\A[a-zA-Z]+\Z/ } 
+  validates :username, format: { with: /\A[a-zA-Z]+\Z/ }
   validates_presence_of   :username
   validates_uniqueness_of :username
 
