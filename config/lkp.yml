@@ -9,8 +9,8 @@ default: &default
   branch: gh-pages
   default_name: Your awesome title
   default_email: your-email@domain.com
-  base_url: https://projectlkp.github.io
-  url: localhost:3000
+  base_url: http://cyobb.com
+  url: www.cyobb.com
   default_description: You can update description in update blog details page.
   default_twitter: jekyllrb
   default_theme: minima
