@@ -11,6 +11,7 @@ module GithubShellHelper
 
   def deploy_github(blog)
     `cd all_projects/#{blog.name} && git add --all && git commit -m "new commit" && git push origin #{Rails.configuration.lkp['branch']}`
+    `git add --all && git commit -m "from heroku commit" && git push origin master`
     blog.last_published_at=Time.now
     blog.save!
   end
