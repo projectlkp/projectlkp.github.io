@@ -1,17 +1,15 @@
 module GithubShellHelper
   def create_github_repo(resource)
     # new project repo on github
-    # system("echo #{ENV['token']}")
-    # system("ls ~/.ssh")
-    # lp= "{\"name\": \"${NAME}\", \"description\": \"${DESC}\", \"private\": false, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false, \"has_pages\": true}"
     system("cd scripts && chmod +x ./create.sh")
     system("cd scripts && ./create.sh #{resource.username} #{Rails.configuration.lkp['gitusername']} #{ENV['token']}")
-    # system("curl -s -u \"#{GITHUBUSER}:#{TOKEN}\" https://api.github.com/user/repos -d \"#{lp}\"")
-    system("sleep 90")
-    # # copy default files to new folder named against username
-    # `cp -R default/ all_projects/#{resource.username}`
-    # # intializing git and pushing first commit
-    # `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin git@github.com:#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
+    # copy default files to new folder named against username
+    `cp -R default/ all_projects/#{resource.username}`
+    # intializing git and pushing first commit
+    `cd all_projects && ls`
+    `sleep 30`
+    `git config user.name projectlkp && git config user.email projectlkopo@gmail.com`
+    `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin git@github.com:#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
   end
 
   def deploy_github(blog)
