@@ -6,9 +6,9 @@ module GithubShellHelper
     # copy default files to new folder named against username
     `cp -R default/ all_projects/#{resource.username}`
     # intializing git and pushing first commit
-    `cd all_projects && ls`
+    system("cd all_projects && ls")
     `sleep 30`
-    `git config user.name projectlkp && git config user.email projectlkopo@gmail.com`
+    `git config --global user.name projectlkp && git config --global user.email projectlkopo@gmail.com`
     `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin git@github.com:#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
   end
 
