@@ -1,9 +1,12 @@
 module GithubShellHelper
   def create_github_repo(resource)
     # new project repo on github
-    system("echo #{ENV['token']}")
-    system("ls ~/.ssh")
+    # system("echo #{ENV['token']}")
+    # system("ls ~/.ssh")
+    # lp= "{\"name\": \"${NAME}\", \"description\": \"${DESC}\", \"private\": false, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false, \"has_pages\": true}"
+    system("cd scripts && chmod +x ./create.sh")
     system("cd scripts && ./create.sh #{resource.username} #{Rails.configuration.lkp['gitusername']} #{ENV['token']}")
+    # system("curl -s -u \"#{GITHUBUSER}:#{TOKEN}\" https://api.github.com/user/repos -d \"#{lp}\"")
     system("sleep 90")
     # # copy default files to new folder named against username
     # `cp -R default/ all_projects/#{resource.username}`
