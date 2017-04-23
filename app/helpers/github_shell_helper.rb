@@ -1,11 +1,9 @@
 module GithubShellHelper
   def create_github_repo(resource)
-    system("pwd")
-    system("cd scripts && ls")
-    system("sleep 90")
-
     # new project repo on github
-    # `cd scripts && create.sh #{resource.username} #{Rails.configuration.lkp['gitusername']} #{ENV['token']}`
+    system("echo #{ENV['token']}")
+    system("cd scripts && create.sh #{resource.username} #{Rails.configuration.lkp['gitusername']} #{ENV['token']}")
+    system("sleep 90")
     # # copy default files to new folder named against username
     # `cp -R default/ all_projects/#{resource.username}`
     # # intializing git and pushing first commit
