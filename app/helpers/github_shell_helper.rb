@@ -12,7 +12,7 @@ module GithubShellHelper
     `chmod 600 .netrc`
     make_file_p()
     `sleep 30`
-    `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin git@github.com:#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
+    `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin https://github.com/#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
   end
 
   def deploy_github(blog)
@@ -25,8 +25,8 @@ module GithubShellHelper
     File.write(".netrc",
     <<-HEREDOC
 machine github.com
-       login projectlkp
-       password #{ENV['github_pwd']}
+login projectlkp
+password #{ENV['github_pwd']}
     HEREDOC
     )
   end
