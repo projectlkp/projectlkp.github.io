@@ -7,10 +7,10 @@ module GithubShellHelper
     `cp -R default/ all_projects/#{resource.username}`
     # intializing git and pushing first commit
     system("cd all_projects && ls")
-    `sleep 30`
     `git config --global user.name projectlkp && git config --global user.email projectlkopo@gmail.com`
     `touch ~/.netrc`
     make_file_p()
+    `sleep 30`
     `cd all_projects/#{resource.username} && git init && git add --all && git checkout -b #{Rails.configuration.lkp['branch']} && git commit -m "first commit" && git remote add origin git@github.com:#{Rails.configuration.lkp['gitusername']}/#{resource.username} && git push -u origin #{Rails.configuration.lkp['branch']}`
   end
 
