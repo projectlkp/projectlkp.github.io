@@ -9,9 +9,9 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # group :development do
 #    gem 'sqlite3'    #gem to use in development environment
 # end
-
+gem 'sqlite3'
 # group :production do
-gem 'pg'         #gem to use in production environment
+# gem 'pg'         #gem to use in production environment
 # end
 
 gem 'simple_form'

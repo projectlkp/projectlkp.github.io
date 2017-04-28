@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 20170421163133) do
     t.string   "name"
     t.string   "url"
     t.integer  "user_id"
-    t.string   "path"
     t.string   "theme"
     t.string   "email"
     t.string   "description"
     t.text     "about"
     t.string   "twitter"
     t.datetime "last_published_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.boolean  "last_published_status", default: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "posts", force: :cascade do |t|

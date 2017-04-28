@@ -80,10 +80,11 @@
               <div class="panel panel-default">
                 <div class="panel-body">
                   You have written
-                  <%= current_user.blogs.first.posts.count %> posts.
+                  <!-- <!%= current_user.blogs.first.posts.count %> posts. -->
                 </div>
                 <div class="panel-footer">
-                  Last published at <%= current_user.blogs.first.last_published_at %>
+                  <!-- Last published at <!%= current_user.blogs.first.last_published_at %> -->
+                  <!-- <!%= current_user.blogs.first.last_published_status %> -->
                 </div>
               </div>
             <% else %>

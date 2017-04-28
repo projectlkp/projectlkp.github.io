@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def index
     if current_user
-      @posts=current_user.blogs.first.posts
+      @posts=[]
+      @posts=current_user.blogs.first.posts if current_user.blogs.present?
       respond_to do |format|
         format.html { render 'index.html.erb' }
       end

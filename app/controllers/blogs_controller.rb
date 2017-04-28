@@ -1,7 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :publish_blog]
-  include GithubShellHelper
 
   # GET /blogs
   # GET /blogs.json
@@ -64,7 +63,7 @@ class BlogsController < ApplicationController
   end
 
   def publish_blog
-    deploy_github(@blog)
+    @blog.publish()
     respond_to do |format|
       format.html { redirect_to :root, notice: "Blog was successfully published at #{Time.now}." }
       format.json { head :no_content }
