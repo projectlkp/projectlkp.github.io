@@ -52,6 +52,9 @@ form #user_username {
 form #user_username {
     text-transform: lowercase;
 }
+textarea.form-control{
+  min-height: 300px;
+}
 // for keeping markdown editor's height to 300px fixed
 // .CodeMirror {
 // 	height: 300px;

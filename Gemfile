@@ -13,7 +13,7 @@ gem 'sqlite3'
 # group :production do
 # gem 'pg'         #gem to use in production environment
 # end
-
+gem 'will_paginate', '~> 3.1.0'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'devise'

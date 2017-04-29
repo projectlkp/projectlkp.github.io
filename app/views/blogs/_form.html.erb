@@ -32,5 +32,11 @@
 
 
 <script>
-var simplemde = new SimpleMDE({ element: document.getElementById("about_box") });
+  setTimeout(function(){
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+       // some code..
+     }else{
+       var simplemde = new SimpleMDE({ element: document.getElementById("about_box") });
+     }
+    }, 300);
 </script>
