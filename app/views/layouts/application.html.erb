@@ -103,6 +103,33 @@
           </div>
         </div>
       </main>
+
+      <% if !current_user %>
+        <br>
+        <hr>
+        <div class="panel panel-default">
+           <div class="panel-heading">
+              All available themes
+           </div>
+          <div class="panel-body">
+            <% all_themes().each do |i| %>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                  <div class="hovereffect">
+                      <%= image_tag(i[:image], class: "img-responsive") %>
+                          <div class="overlay">
+                              <h2><%= i[:name] %></h2>
+                      <p>
+                        <a href="<%= i[:link] %>">Preview</a>
+                      </p>
+                          </div>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <p class="help-block">More themes coming soon.</p>
+      <% end %>
+
       <div class="jumbotron">
         <h1>Explain the concept</h1>
         <div class="list-group">
@@ -145,6 +172,8 @@
         </div>
         <p><a class="btn btn-primary btn-lg" href="/pages/learn_more">Learn more</a></p>
       </div>
+
+
       <footer>Copyright &copy; 2013-2017 <a href="https://github.com/rajatsingla">Rajatsingla.in</a> (rajatrs5054 at gmail.com)</footer>
     </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">

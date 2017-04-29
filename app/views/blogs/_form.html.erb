@@ -6,6 +6,14 @@
   </div>
 
   <div class="form-inputs">
+    <%= f.input :title,hint: 'Title for your blog.' %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :author_name %>
+  </div>
+
+  <div class="form-inputs">
     <%= f.input :url, readonly: true,hint: 'Working on making it editable to use custom urls.' %>
   </div>
 
@@ -14,7 +22,23 @@
   </div>
 
   <div class="form-inputs">
+    <%= f.input :theme, collection: [ "minima", "kasper"], as: :radio_buttons %>
+  </div>
+
+  <div class="form-inputs">
     <%= f.input :email %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :cover_image,hint: 'Cover image for your blog.' %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :author_image %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :google_analytics,hint: 'Google tracking code.' %>
   </div>
 
   <div class="form-inputs">

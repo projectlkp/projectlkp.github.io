@@ -14,6 +14,11 @@ ActiveRecord::Schema.define(version: 20170421163133) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "name"
+    t.string   "title"
+    t.string   "cover_image"
+    t.string   "author_image"
+    t.string   "author_name"
+    t.string   "google_analytics"
     t.string   "url"
     t.integer  "user_id"
     t.string   "theme"

@@ -35,17 +35,31 @@ class Blog < ApplicationRecord
   def update_config()
       File.write("#{self.path}/_config.yml",
       <<-HEREDOC
-title: #{self.name || Rails.configuration.lkp['default_name']}
+title: #{self.title || Rails.configuration.lkp['default_name']}
 email: #{self.email || Rails.configuration.lkp['default_email']}
 description: > # this means to ignore newlines until "baseurl:"
     #{self.description || Rails.configuration.lkp['default_description']}
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: #{self.url} # the base hostname & protocol for your site
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "#{self.url}" # the base hostname & protocol for your site
 twitter_username: #{self.twitter || Rails.configuration.lkp['default_twitter']}
 
 markdown: kramdown
-theme: #{self.theme || "minima"}
+
+name: #{self.title || Rails.configuration.lkp['default_name']}
+
+date: #{Time.now}
+permalink: /:year/:month/:day/:title
+
+logo: false
+paginate: 10
+domain_name: #{self.url}
+google_analytics: #{self.google_analytics}
+gems: [jekyll-paginate]
+cover: #{self.cover_image}
+author_image: #{self.author_image}
+# Details for the RSS feed generator
+author:        #{self.author_name}
       HEREDOC
       )
   end

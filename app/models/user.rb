@@ -12,8 +12,8 @@ class User < ApplicationRecord
  has_many :blogs, :dependent => :destroy
 
  after_create :create_blog
- # after_create :create_github_repo
- # after_create :publish_blog
+ after_create :create_github_repo
+ after_create :publish_blog
 
  def create_blog()
    blog=Blog.new
@@ -25,13 +25,18 @@ class User < ApplicationRecord
    blog.about="#{Rails.configuration.lkp['default_about']}"
    blog.twitter="#{Rails.configuration.lkp['default_twitter']}"
    blog.email="#{Rails.configuration.lkp['default_email']}"
+   blog.title="#{Rails.configuration.lkp['default_name']}"
+   blog.cover_image=""
+   blog.author_image=""
+   blog.author_name=self.username
+   blog.google_analytics="UA-31XXXXXX-X"
    blog.save!
  end
 
  def create_github_repo()
    # new project repo on github
    system("cd scripts && chmod +x create.sh")
-   system("cd scripts && create.sh #{self.username} #{Rails.configuration.lkp['gitusername']} d3681aedc44d7dce791132b00f3359ade929a54d")
+   system("cd scripts && create.sh #{self.username} #{Rails.configuration.lkp['gitusername']} bd648352d8eca93c6d46af3d84eb22f6efe2f3fc")
  end
 
  def publish_blog()
