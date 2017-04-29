@@ -5,10 +5,12 @@
 <%= @post.name %>
 
 <h3>Content</h3>
-<div id="content"></div>
+<div id="content">
+  <%= @post.content %>
+</div>
   <script>
-    document.getElementById('content').innerHTML =
-      marked(`<%= @post.content %>`);
+     document.getElementById('content').innerHTML =
+       marked(document.getElementById('content').innerHTML);
   </script>
 <div class="padding-little">
   <%= link_to 'Edit', edit_post_path(@post),{class: "btn btn-link"} %> |

@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully created. Don\'t forget to publish changes.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -45,9 +45,13 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    if post_params[:name]!=@post.name
+      @post.path=file_path(post_params[:name])
+      @post.header=post_header(post_params[:name])
+    end
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Post was successfully updated. Don\'t forget to publish changes.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }

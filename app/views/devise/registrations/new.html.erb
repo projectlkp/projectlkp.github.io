@@ -7,7 +7,7 @@
     <%= f.input :username, required: true, autofocus: true, hint: 'username should only contain characters' %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
-    <div class="g-recaptcha" data-sitekey="6Lf6NR4UAAAAANwGH0cWKfqN1swuBRQerkaXNa2F"></div>
+    <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6Lf6NR4UAAAAANwGH0cWKfqN1swuBRQerkaXNa2F"></div>
   </div>
 
   <div class="form-actions">
@@ -16,3 +16,18 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<script>
+  var captcha_interval;
+  var myCallback=function(){
+    document.getElementsByName('commit')[0].disabled=false;
+  };
+  var onloadCallback = function() {
+    document.getElementsByName('commit')[0].disabled=true;
+    grecaptcha.render(
+     document.getElementById('g-recaptcha'),
+     {
+       callback: myCallback,
+       sitekey: "6Lf6NR4UAAAAANwGH0cWKfqN1swuBRQerkaXNa2F"
+     });
+  };
+</script>

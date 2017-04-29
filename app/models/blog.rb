@@ -3,7 +3,7 @@ class Blog < ApplicationRecord
   belongs_to :user
 
   def publish
-    # begin
+    begin
       self.clean_folder()
       self.create_folder()
       self.update_config()
@@ -13,10 +13,10 @@ class Blog < ApplicationRecord
       self.clean_folder()
       self.last_published_at=Time.now
       self.last_published_status=true
-    # rescue
-    #   self.last_published_at=Time.now
-    #   self.last_published_status=false
-    # end
+    rescue
+      self.last_published_at=Time.now
+      self.last_published_status=false
+    end
     self.save!
   end
 
@@ -35,17 +35,17 @@ class Blog < ApplicationRecord
   def update_config()
       File.write("#{self.path}/_config.yml",
       <<-HEREDOC
-  title: #{self.name || Rails.configuration.lkp['default_name']}
-  email: #{self.email || Rails.configuration.lkp['default_email']}
-  description: > # this means to ignore newlines until "baseurl:"
+title: #{self.name || Rails.configuration.lkp['default_name']}
+email: #{self.email || Rails.configuration.lkp['default_email']}
+description: > # this means to ignore newlines until "baseurl:"
     #{self.description || Rails.configuration.lkp['default_description']}
 
-  baseurl: "" # the subpath of your site, e.g. /blog
-  url: #{self.url} # the base hostname & protocol for your site
-  twitter_username: #{self.twitter || Rails.configuration.lkp['default_twitter']}
+baseurl: "" # the subpath of your site, e.g. /blog
+url: #{self.url} # the base hostname & protocol for your site
+twitter_username: #{self.twitter || Rails.configuration.lkp['default_twitter']}
 
-  markdown: kramdown
-  theme: #{self.theme || "minima"}
+markdown: kramdown
+theme: #{self.theme || "minima"}
       HEREDOC
       )
   end
@@ -53,13 +53,13 @@ class Blog < ApplicationRecord
   def update_about()
       File.write("#{self.path}/about.md",
       <<-HEREDOC
-  ---
-  layout: page
-  title: About
-  permalink: /about/
-  ---
+---
+layout: page
+title: About
+permalink: /about/
+---
 
-  #{self.about || Rails.configuration.lkp['default_about']}
+#{self.about || Rails.configuration.lkp['default_about']}
       HEREDOC
       )
   end

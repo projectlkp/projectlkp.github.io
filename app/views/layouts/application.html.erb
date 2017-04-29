@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cyobb</title>
+    <title>Create Your Own Beautiful Blog</title>
     <%= csrf_meta_tags %>
     <meta name="description" content="<%= Rails.configuration.lkp['description'] %>">
   <meta name="keywords" content="<%= Rails.configuration.lkp['keywords'] %>">
@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
     <!-- google recaptcha -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -63,8 +63,8 @@
               <div class="panel panel-default">
                 <div class="panel-body">
                   Your blog is published at<br>
-                  <a href="<%= Rails.configuration.lkp['base_url'] %>/<%= current_user.username %>" target="_blank">
-                    <%= Rails.configuration.lkp['base_url'] %>/<%= current_user.username %>
+                  <a href="<%= current_user.blogs.first.url %>" target="_blank">
+                    <%= current_user.blogs.first.url %>
                   </a>
                 </div>
               </div>
@@ -72,7 +72,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">Publish the changes</div>
                 <div class="panel-body">
-                  <a href="/blogs/publish" class="btn btn-primary btn-lg">Publish Changes</a><br>
+                  <a href="/blogs/publish" class="btn btn-primary btn-lg" data-disable-with="Please wait... ">Publish Changes</a><br>
                   Changes may take upto 5 minutes to reflect.
                 </div>
               </div>
@@ -80,11 +80,16 @@
               <div class="panel panel-default">
                 <div class="panel-body">
                   You have written
-                  <!-- <!%= current_user.blogs.first.posts.count %> posts. -->
+                  <%= current_user.blogs.first.posts.count %> posts.
                 </div>
                 <div class="panel-footer">
-                  <!-- Last published at <!%= current_user.blogs.first.last_published_at %> -->
-                  <!-- <!%= current_user.blogs.first.last_published_status %> -->
+                <% if current_user.blogs.first.last_published_status %>
+                  <span class="label label-success">Success</span>
+                  Last published at <%= current_user.blogs.first.last_published_at %>
+                <% else %>
+                  <span class="label label-danger">Failed</span>
+                  Please publish again, failed at <%= current_user.blogs.first.last_published_at %>
+                <% end %>
                 </div>
               </div>
             <% else %>
@@ -100,13 +105,44 @@
       </main>
       <div class="jumbotron">
         <h1>Explain the concept</h1>
-        <p>After you sign up we create and publish your blog online
-           and after that you can add and edit blogs right here and publish them with one button.
-           We take care of all the deployment, design and seo and what not. You have to just write content
-            at which you are awesome right.
-            If you don't like your url address we have created for you, you can always buy your own url from godaddy.com for around
-            Rs. 500 / 7.734 USD and use that url to publish your blog.
-         </p>
+        <div class="list-group">
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Create account</h4>
+            <p class="list-group-item-text">
+              After you sign up we create and publish your blog online at cyobb.com/username.
+            </p>
+          </div>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Add and edit posts</h4>
+            <p class="list-group-item-text">
+              You can add and edit your posts anytime by logging into your account.
+            </p>
+          </div>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Update theme</h4>
+            <p class="list-group-item-text">
+              You can also change your blog's theme from available options, on update blog details page.
+            </p>
+          </div>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Update blog details</h4>
+            <p class="list-group-item-text">
+              You can update all your blog details like about us page, blog's description, your email id, your twitter id, update theme, custom url right at one place.
+            </p>
+          </div>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Publish changes</h4>
+            <p class="list-group-item-text">
+              All the changes and new posts will not be published to your blog until you publish them by clicking publish changes button.
+            </p>
+          </div>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Custom url</h4>
+            <p class="list-group-item-text">
+              By default your blog's url will be cyobb.com/username. But you can buy your own url from godaddy.com and update your custom url in update blog details page.
+            </p>
+          </div>
+        </div>
         <p><a class="btn btn-primary btn-lg" href="/pages/learn_more">Learn more</a></p>
       </div>
       <footer>Copyright &copy; 2013-2017 <a href="https://github.com/rajatsingla">Rajatsingla.in</a> (rajatrs5054 at gmail.com)</footer>

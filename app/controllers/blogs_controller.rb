@@ -64,8 +64,13 @@ class BlogsController < ApplicationController
 
   def publish_blog
     @blog.publish()
+
     respond_to do |format|
-      format.html { redirect_to :root, notice: "Blog was successfully published at #{Time.now}." }
+      if @blog.last_published_status
+        format.html { redirect_to :root, notice: "Blog was successfully published at #{Time.now}. Changes may take upto 5 minutes to reflect." }
+      else
+        format.html { redirect_to :root, alert: "Please publish again, failed at #{Time.now}." }
+      end
       format.json { head :no_content }
     end
   end

@@ -21,7 +21,7 @@ header.batman{
 }
 .alert{
   opacity: .7;
-  max-width: 50%;
+  // max-width: 50;
 }
 
 .jumbotron{
@@ -36,7 +36,22 @@ footer{
     padding: 20px 0px;
 }
 
+.jumbotron p {
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 200;
+}
 
+.jumbotron h1, .jumbotron .h1 {
+    font-size: 56px;
+}
+
+form #user_username {
+    text-transform: lowercase;
+}
+form #user_username {
+    text-transform: lowercase;
+}
 // for keeping markdown editor's height to 300px fixed
 // .CodeMirror {
 // 	height: 300px;
