@@ -3,6 +3,8 @@
   <head>
     <title>Create Your Own Beautiful Blog</title>
     <%= csrf_meta_tags %>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-control" content="public">
     <meta name="description" content="<%= Rails.configuration.lkp['description'] %>">
   <meta name="keywords" content="<%= Rails.configuration.lkp['keywords'] %>">
   <meta property="og:title" content="Create Your Own Beautiful Blog">
@@ -11,12 +13,22 @@
   <%= favicon_link_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', :async => true %>
 
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js" async></script>
     <!-- google recaptcha -->
     <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-82100511-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-default">
