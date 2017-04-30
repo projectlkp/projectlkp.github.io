@@ -1,1 +1,1 @@
-release: rake db:reset db:migrate
+release: rake db:migrate
