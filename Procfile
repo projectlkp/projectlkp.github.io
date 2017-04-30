@@ -1,3 +1,1 @@
-release: rake db:drop:_unsafe
-release: rake db:create
-release: rake db:migrate
+release: rake db:reset db:migrate
