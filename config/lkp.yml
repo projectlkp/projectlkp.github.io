@@ -13,7 +13,7 @@ default: &default
   url: www.cyobb.com
   default_description: You can update description in update blog details page.
   default_twitter: jekyllrb
-  default_theme: minima
+  default_theme: kasper
   default_about: You can update about page in update blog details page.
 
 
