@@ -8,6 +8,7 @@ class Blog < ApplicationRecord
       self.create_folder()
       self.update_config()
       self.update_about()
+      # self.update_cname()
       self.update_posts()
       self.deploy_github()
       self.clean_folder()
@@ -30,6 +31,12 @@ class Blog < ApplicationRecord
 
   def create_folder()
     `cp -R themes/#{self.theme} #{self.path}`
+  end
+
+  def update_cname()
+    File.write("#{self.path}/CNAME",
+    self.url
+    )
   end
 
   def update_config()

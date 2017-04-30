@@ -5,6 +5,10 @@
     <%= csrf_meta_tags %>
     <meta name="description" content="<%= Rails.configuration.lkp['description'] %>">
   <meta name="keywords" content="<%= Rails.configuration.lkp['keywords'] %>">
+  <meta property="og:title" content="Create Your Own Beautiful Blog">
+  <meta property="og:image" content="<%= image_url 'kasper.png'%>">
+  <meta property="og:description" content="<%= Rails.configuration.lkp['description'] %>">
+  <%= favicon_link_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -133,42 +137,42 @@
       <div class="jumbotron">
         <h1>Explain the concept</h1>
         <div class="list-group">
-          <div class="list-group-item">
+          <a href="/pages/learn_more/#question-what-happens-when-i-create-account-" class="list-group-item">
             <h4 class="list-group-item-heading">Create account</h4>
             <p class="list-group-item-text">
               After you sign up we create and publish your blog online at cyobb.com/username.
             </p>
-          </div>
-          <div class="list-group-item">
+          </a>
+          <a href="/pages/learn_more/#question-how-to-upload-images-in-posts-and-for-cover-photo-and-for-author-image-" class="list-group-item">
             <h4 class="list-group-item-heading">Add and edit posts</h4>
             <p class="list-group-item-text">
               You can add and edit your posts anytime by logging into your account.
             </p>
-          </div>
-          <div class="list-group-item">
+          </a>
+          <a href="/pages/learn_more/#question-how-many-themes-are-there-on-cyobb-" class="list-group-item">
             <h4 class="list-group-item-heading">Update theme</h4>
             <p class="list-group-item-text">
               You can also change your blog's theme from available options, on update blog details page.
             </p>
-          </div>
-          <div class="list-group-item">
+          </a>
+          <a href="/pages/learn_more/#question-changes-i-can-make-on-update-blog-details-page-" class="list-group-item">
             <h4 class="list-group-item-heading">Update blog details</h4>
             <p class="list-group-item-text">
               You can update all your blog details like about us page, blog's description, your email id, your twitter id, update theme, custom url right at one place.
             </p>
-          </div>
-          <div class="list-group-item">
+          </a>
+          <a href="/pages/learn_more/#question-why-don-t-automatically-publish-changes-" class="list-group-item">
             <h4 class="list-group-item-heading">Publish changes</h4>
             <p class="list-group-item-text">
               All the changes and new posts will not be published to your blog until you publish them by clicking publish changes button.
             </p>
-          </div>
-          <div class="list-group-item">
+          </a>
+          <a href="/pages/learn_more/#question-how-do-i-use-custom-url-for-my-blog-" class="list-group-item">
             <h4 class="list-group-item-heading">Custom url</h4>
             <p class="list-group-item-text">
               By default your blog's url will be cyobb.com/username. But you can buy your own url from godaddy.com and update your custom url in update blog details page.
             </p>
-          </div>
+          </a>
         </div>
         <p><a class="btn btn-primary btn-lg" href="/pages/learn_more">Learn more</a></p>
       </div>

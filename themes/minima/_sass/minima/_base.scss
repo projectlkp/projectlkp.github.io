@@ -213,3 +213,16 @@ pre {
     padding-top: 5px;
   }
 }
+section.poweredby {
+    display: block;
+    width: 45%;
+    float: right;
+    text-align: right;
+    font-size: 14px;
+}
+section.copyright {
+  font-size: 14px;
+    display: block;
+    width: 45%;
+    float: left;
+}

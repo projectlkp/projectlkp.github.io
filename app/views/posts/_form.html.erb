@@ -9,6 +9,9 @@
     <% end %>
 
     <%= f.input :content, as: :text   %>
+    <p class="help-block">
+      <a href="/pages/learn_more/#question-what-is-markdown-editor-how-to-use-it-" target="_blank">More info about editor</a>
+    </p>
 
   </div>
 
@@ -17,12 +20,16 @@
   </div>
 <% end %>
 <script>
+  var simplemde;
   setTimeout(function(){
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
      // some code..
    }else{
-     var simplemde;
-     simplemde = new SimpleMDE();
+     if (simplemde){
+       location.reload()
+     }else{
+       simplemde = new SimpleMDE();
+     }
    }
   }, 300);
 </script>

@@ -35,8 +35,8 @@ class User < ApplicationRecord
 
  def create_github_repo()
    # new project repo on github
-   system("cd scripts && chmod +x create.sh")
-   system("cd scripts && create.sh #{self.username} #{Rails.configuration.lkp['gitusername']} bd648352d8eca93c6d46af3d84eb22f6efe2f3fc")
+   system("cd scripts && chmod +x ./create.sh")
+   system("cd scripts && ./create.sh #{self.username} #{Rails.configuration.lkp['gitusername']} #{ENV['token']}")
  end
 
  def publish_blog()
