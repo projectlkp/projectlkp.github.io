@@ -3,6 +3,10 @@
 
   <div class="form-inputs">
     <%= f.input :name, disabled: true %>
+    <p class="help-block">You can't change
+      <a target="_blank" href="/pages/learn_more/#question-can-i-change-my-username-">
+        name</a>
+    </p>
   </div>
 
   <div class="form-inputs">
@@ -14,13 +18,12 @@
   </div>
 
   <div class="form-inputs">
-    <%= f.input :url,readonly: true %>
+    <%= f.input :url %>
     <p class="text-danger">
-      Working on it to make it editable.
-      <!-- Working on it to make it editable.Use your own custom url. Don't change this before
-      <a target="_blank" href="/pages/learn_more/#question-how-do-i-use-custom-url-for-my-blog-">reading how guide.</a> -->
-      <!-- <br> -->
-      <!-- <a id="reset_url" href="#">reset url</a> -->
+      Use your own custom url. Don't change this before
+      <a target="_blank" href="/pages/learn_more/#question-how-do-i-use-custom-url-for-my-blog-">reading how guide.</a>
+      <br>
+      <a id="reset_url" href="#">reset url</a>
     </p>
   </div>
   <script>

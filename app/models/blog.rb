@@ -8,7 +8,7 @@ class Blog < ApplicationRecord
       self.create_folder()
       self.update_config()
       self.update_about()
-      # self.update_cname()
+      self.update_cname()
       self.update_posts()
       self.deploy_github()
       self.clean_folder()

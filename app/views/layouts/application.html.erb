@@ -30,7 +30,8 @@
 
     </script>
   </head>
-  <body>
+  <% style="background: url(" + image_url('home.jpg') + ") no-repeat" %>
+  <body style="<%= style if !current_user && ['registrations','home','sessions'].include?(controller_name) %>">
     <nav class="navbar navbar-default">
       <div class="container-fluid container">
         <div class="navbar-header">
@@ -82,6 +83,10 @@
                   <a href="<%= current_user.blogs.first.url %>" target="_blank">
                     <%= current_user.blogs.first.url %>
                   </a>
+                  <p class="help-block">
+                    You can use your own custom url
+                    <a target="_blank" href="/pages/learn_more/#question-how-do-i-use-custom-url-for-my-blog-">how?</a>
+                  </p>
                 </div>
               </div>
 
@@ -113,6 +118,10 @@
                 <div class="panel-body">
                   Your blog will be published at<br>
                   <%= Rails.configuration.lkp['base_url'] %>/username
+                  <p class="help-block">
+                    You can use your own custom url
+                    <a target="_blank" href="/pages/learn_more/#question-how-do-i-use-custom-url-for-my-blog-">how?</a>
+                  </p>
                 </div>
               </div>
             <% end %>
@@ -122,7 +131,7 @@
 
       <% if !current_user %>
         <br>
-        <hr>
+        <br>
         <div class="panel panel-default">
            <div class="panel-heading">
               All available themes
