@@ -35,7 +35,7 @@ class Blog < ApplicationRecord
 
   def update_cname()
     File.write("#{self.path}/CNAME",
-    self.url
+    self.url.chomp("//")
     )
   end
 
