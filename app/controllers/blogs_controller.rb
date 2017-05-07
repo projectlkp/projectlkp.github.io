@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :publish_blog]
+  include BlogsHelper
 
   # GET /blogs
   # GET /blogs.json
@@ -41,8 +42,10 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
+    @blog.update(blog_params)
+    @blog.url=clean_url(blog_params[:url])
     respond_to do |format|
-      if @blog.update(blog_params)
+      if @blog.save
         format.html { redirect_to :update_blog, notice: 'Blog was successfully updated, don\'t forget to publish changes.' }
         format.json { render :show, status: :ok, location: @blog }
       else

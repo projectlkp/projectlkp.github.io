@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create Your Own Beautiful Blog</title>
+    <title>Create Your Own Beautiful Blog with automated jekyll on github pages</title>
     <%= csrf_meta_tags %>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-control" content="public">
     <meta name="description" content="<%= Rails.configuration.lkp['description'] %>">
   <meta name="keywords" content="<%= Rails.configuration.lkp['keywords'] %>">
-  <meta property="og:title" content="Create Your Own Beautiful Blog">
+  <meta property="og:title" content="Create Your Own Beautiful Blog with automated jekyll on github pages">
   <meta property="og:image" content="<%= image_url 'kasper.png'%>">
   <meta property="og:description" content="<%= Rails.configuration.lkp['description'] %>">
   <%= favicon_link_tag %>
@@ -66,6 +66,9 @@
       <main>
         <div class="row">
           <div class="col-md-9 little-padding">
+            <% if !current_user %>
+              <h4 class="help-block">Automated jekyll build on github pages</h4>
+            <% end %>
             <% if notice %>
               <p class="alert alert-success"><%= notice %></p>
             <% end %>
@@ -157,6 +160,7 @@
 
       <div class="jumbotron">
         <h1>Explain the concept</h1>
+        <h5 class="help-block">Automated jekyll build on github pages</h5>
         <div class="list-group">
           <a href="/pages/learn_more/#question-what-happens-when-i-create-account-" class="list-group-item">
             <h4 class="list-group-item-heading">Create account</h4>

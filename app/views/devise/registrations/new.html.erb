@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Create Blog</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal" ) do |f| %>
   <%= f.error_notification %>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up", data: { disable_with: "This may take upto 2 minutes... "} %>
+    <%= f.button :submit, "Create Blog", data: { disable_with: "This may take upto 2 minutes... "} %>
   </div>
 <% end %>
 

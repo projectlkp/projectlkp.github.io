@@ -39,6 +39,16 @@ class Blog < ApplicationRecord
     )
   end
 
+  def get_baseurl()
+    if self.url=="#{Rails.configuration.lkp['base_url']}/#{self.name}/"
+      "/#{self.name}"
+    elsif self.url=="#{Rails.configuration.lkp['base_url']}/#{self.name}"
+      "/#{self.name}"
+    else
+      "/"
+    end
+  end
+
   def update_config()
       File.write("#{self.path}/_config.yml",
       <<-HEREDOC

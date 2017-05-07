@@ -1,16 +1,17 @@
 
 <h1>Welcome <%= current_user.username.capitalize %></h1>
 
-<%= link_to 'New Post', new_post_path,{ :class=>"btn btn-primary btn-lg" }  %>
-
+<%= link_to 'Add a New Post', new_post_path,{ :class=>"btn btn-primary btn-lg" }  %>
+<br><br>
+<%= link_to 'Update Blog Details', update_blog_path,{ :class=>"btn btn-primary btn-lg" }  %>
 <h3>All posts</h3>
 
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Edit</th>
       <th>Show</th>
+      <th>Edit</th>
       <th>Destroy</th>
     </tr>
   </thead>
