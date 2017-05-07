@@ -34,9 +34,15 @@ class Blog < ApplicationRecord
   end
 
   def update_cname()
-    File.write("#{self.path}/CNAME",
-    self.url.chomp("/")
-    )
+    if self.url!="#{Rails.configuration.lkp['base_url']}/#{self.name}/"
+     File.write("#{self.path}/CNAME",
+      self.url.chomp("/")
+     )
+    else
+     File.write("#{self.path}/CNAME",
+      ""
+     )
+    end
   end
 
   def get_baseurl()
