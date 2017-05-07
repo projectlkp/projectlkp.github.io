@@ -64,7 +64,7 @@ description: > # this means to ignore newlines until "baseurl:"
     #{self.description || Rails.configuration.lkp['default_description']}
 
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "#{self.url}" # the base hostname & protocol for your site
+url: "#{self.url.chomp("/")}" # the base hostname & protocol for your site
 twitter_username: #{self.twitter || Rails.configuration.lkp['default_twitter']}
 
 markdown: kramdown

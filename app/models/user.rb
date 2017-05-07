@@ -40,7 +40,9 @@ class User < ApplicationRecord
  end
 
  def publish_blog()
+   sleep(5)
    self.blogs.first.publish()
+   sleep(5)
  end
 
  def email_required?
