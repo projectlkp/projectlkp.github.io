@@ -61,7 +61,7 @@ class Blog < ApplicationRecord
 title: #{self.title || Rails.configuration.lkp['default_name']}
 email: #{self.email || Rails.configuration.lkp['default_email']}
 description: > # this means to ignore newlines until "baseurl:"
-    #{self.description || Rails.configuration.lkp['default_description']}
+ #{self.description.gsub(/\n/, " ").strip()}
 
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "#{self.url.chomp("/")}" # the base hostname & protocol for your site

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :blogs, only: [:update]
 
   get 'update_blog', to: 'blogs#edit', as: :update_blog
