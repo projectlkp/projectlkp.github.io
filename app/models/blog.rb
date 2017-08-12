@@ -76,6 +76,7 @@ permalink: /:year/:month/:day/:title
 
 logo: false
 paginate: 10
+adsid: ca-pub-8582082279264878
 domain_name: #{self.url}
 google_analytics: #{self.google_analytics}
 gems: [jekyll-paginate]

@@ -6,7 +6,7 @@ module PostsHelper
     <<-HEREDOC
 ---
 layout: post
-title:  #{name.capitalize}
+title:  #{name.capitalize.gsub!(/[^0-9A-Za-z]/, '')}
 date:   #{Time.now}
 ---
     HEREDOC
