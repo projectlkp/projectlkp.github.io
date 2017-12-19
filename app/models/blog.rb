@@ -103,7 +103,7 @@ permalink: /about/
   end
 
   def update_posts()
-    for post in self.posts do
+    for post in self.posts.where(:mark_work_in_progress=>false) do
       File.write("#{self.path}/_posts/#{post.path}", post.header+"\n"+"\n"+post.content)
     end
   end

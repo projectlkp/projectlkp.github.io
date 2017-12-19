@@ -13,11 +13,20 @@
       <a href="/pages/learn_more/#question-what-is-markdown-editor-how-to-use-it-" target="_blank">More info about editor</a>
     </p>
 
+    <div>Mark this post work in progress, If marked it will not be published until unmarked.</div>
+    <label class="switch">
+      <%= f.check_box :mark_work_in_progress %>
+      <span class="slider round"></span>
+    </label>
+
   </div>
+
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+
 <% end %>
 <script>
   var simplemde;

@@ -1,7 +1,7 @@
 development:
     adapter: postgresql
     host: localhost
-    username: user
+    username: rajat
     database: lkpdev
 
 
