@@ -1,33 +1,10 @@
 
 <h1>Welcome <%= current_user.username.capitalize %></h1>
 
-<%= link_to 'Add a New Post', new_post_path,{ :class=>"btn btn-primary btn-lg" }  %>
-<br><br>
 <%= link_to 'Update Blog Details', update_blog_path,{ :class=>"btn btn-primary btn-lg" }  %>
-<h3>All posts</h3>
+<br><br>
+<%= render template: 'posts/index' %>
 
-<table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Destroy</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.name %></td>
-      <td><%= link_to 'Show', post %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @posts %>
-<br>
 <a href="https://www.facebook.com/sharer/sharer.php?u=<%= current_user.blogs.first.url %>" target="_blank">
   Share your awesome blog on Facebook
 </a>
