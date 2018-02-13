@@ -1,24 +1,14 @@
-# README
+# Installation Guide
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Read about ruby on rails
+* make sure you have latest rails
+* make sure you have ruby installed
+* make sure you have postgreSQL
 
-Things you may want to cover:
+clone the repo and cd in
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+change `gitusername` and `token` in config/lkp.yml
+run `bundle install`
+run `rake db:create`
+run `rake db:migrate`
+run `rails s`
