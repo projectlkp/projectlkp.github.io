@@ -8,7 +8,11 @@
 clone the repo and cd in
 
 change `gitusername` and `token` in config/lkp.yml
+
 run `bundle install`
+
 run `rake db:create`
+
 run `rake db:migrate`
+
 run `rails s`
